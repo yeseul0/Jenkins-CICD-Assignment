@@ -24,7 +24,7 @@ class StudentManagerTest {
     @Order(1)
     void testAddStudent() {
         manager.addStudent("Alice");
-        assertTrue(manager.hasStudent("Alice"));
+        assertTrue(manager.hasStudent("Bob")); // Test Fail 되어야함!
     }
 
     // 2. 중복 추가 예외 처리
