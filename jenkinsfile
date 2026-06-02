@@ -65,7 +65,7 @@ pipeline {
         failure {
             echo "Build or test failed!"
             sh """
-            curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage \
+            curl -s -X POST https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage \
             -d chat_id=7548716752 \
             -d text="빌드 실패되었습니다. Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
             """
@@ -75,7 +75,7 @@ pipeline {
         success {
             echo "Build and test succeeded!"
             sh """
-            curl -s -X POST https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage \
+            curl -s -X POST https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage \
             -d chat_id=7548716752 \
             -d text="빌드 성공했습니다. Job: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
             """
